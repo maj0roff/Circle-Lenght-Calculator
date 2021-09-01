@@ -4,7 +4,3 @@
 
 Simple Circle lenght calculator by radius
 
-
-TODO:
-
-Make by diametr calculator
