@@ -1,23 +1,25 @@
 #include <iostream>
-#include <windows.h>
-#include "main.h"
+#include <Windows.h>
+#include <conio.h>
 
 using namespace std;
 
-void calc_by_radius()
+#define PI 3.1415926535
+
+double calc_by_radius(double radius)
 {
-	number = (nump * 2) * radius;
+	return (PI * 2) * radius;
 }
 
-void calc_by_diametr()
+double calc_by_diametr(double diametr)
 {
-	number2 = nump * diametr;
+	return PI * diametr;
 }
 
 
 int main()
 {
-	//Setup console
+	int userinput;
 	SetConsoleTitleA("Circle Lenght Calculator by maj0r");
 
 	cout << "Circle lenght calculator by maj0r\n";
@@ -26,68 +28,53 @@ int main()
 	cout << "[2] Lenght by Diametr\n";
 	cout << "[3] Info panel\n";
 	cout << "\n";
-	cout << "User input :";
+	cout << "User input : ";
 	cin >> userinput; // Getting userinput
 
-	if (userinput == 1)
+	switch (userinput)
 	{
-		cout << "\n";
-		cout << "\n";
-		cout << "Write the circle radius\n";
-		cout << "User input : ";
-
-		cin >> radius; // Getting userinput
-
-		calc_by_radius(); // Calling main calculate function
-		cout << "Circle lenght is " << number << "\n"; // Sending output with answer
-
-		cout << "\n";
-		system("pause");
-
-	}
-	else if (userinput == 2)
-	{
+	case 2:
 		cout << "\n";
 		cout << "\n";
 		cout << "Write the circle diametr\n";
 		cout << "User input : ";
 
+		double diametr;
 		cin >> diametr; // Getting userinput
 
-		calc_by_diametr(); // Calling main calculate function 
-		cout << "Circle radius is " << number2 << "\n"; // Sending output with answer
+		cout << "Circle radius is " << calc_by_diametr(diametr) << "\n"; // Sending output with answer
 
 		cout << "\n";
-		system("pause");
+		break;
+	case 1:
+		cout << "\n";
+		cout << "\n";
+		cout << "Write the circle radius\n";
+		cout << "User input : ";
 
-	}
-	else if (userinput == 3)
-	{
+		double radius;
+		cin >> radius; // Getting userinput
+
+		cout << "Circle lenght is " << calc_by_radius(radius) << "\n"; // Sending output with answer
+
+		cout << "\n";
+		break;
+	case 3:
 		cout << "\n";
 		cout << "\n";
 		cout << "Hello this is circle calculator by maj0r\n";
 		cout << "Here you can calculate circle lenght and radius\n";
 		cout << "And you can write float ints like this : 3.1415\n";
 		cout << "\n";
-		system("pause");
-
-	}
-	/*else if (userinput == 4)
-	{
-		cout << "\n";
-		cout << "Good bye!\n";
-		cout << "See ya later!\n";
-		cout << "\n";
-		system("pause");
-		system("exit");
-	}*/
-	else
-	{
+		break;
+	default:
 		cout << "\n";
 		cout << "Invalid input!\n";
 		cout << "\n";
-		system("pause");
-
+		break;
 	}
 
+	_getch();
+
+	return 0;
 }
